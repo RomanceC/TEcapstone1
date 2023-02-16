@@ -74,7 +74,7 @@ private double amount;
 		try(Scanner fileScanner=new Scanner(file)){
 
 
-			//Map<String,Integer> purchaseItems=new HashMap<>();
+
 			while (fileScanner.hasNextLine()){
 				Product temp=null;
 				String listItems=fileScanner.nextLine();
