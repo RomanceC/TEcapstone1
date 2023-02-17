@@ -6,8 +6,10 @@ import com.techelevator.view.Product;
 import java.io.File;
 import java.util.*;
 
-public class VendingMachineCLI {
+import java.util.HashMap;
+import java.util.Map;
 
+public class VendingMachineCLI extends Menu {
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String MAIN_MENU_EXIT="Exit";
@@ -27,6 +29,8 @@ private List <CoinBank>coins;//Intialize
 		this.loadItems();
 		//this.coins=coins;
 	}
+
+
 
 	public void run() {
 		Scanner inputConsole=new Scanner(System.in);
