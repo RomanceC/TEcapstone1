@@ -94,7 +94,7 @@ public class CoinBank {
             currentBalance -= prod.getPrice();
             System.out.printf("Dispensing %s ($%.2f). Money remaining: $%.2f\n", prod.getName(), prod.getPrice(), currentBalance);
             switch (prod.getCateogry()) {
-
+//testing Gitlab
 
                 case CHIP:
                     System.out.println("Crunch Crunch, Yum!");
