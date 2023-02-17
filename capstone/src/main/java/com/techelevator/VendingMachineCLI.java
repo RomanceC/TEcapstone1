@@ -16,15 +16,16 @@ public class VendingMachineCLI {
 	private static final String PURCHASE_MENU_OPTION3="Finish Transaction";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE,MAIN_MENU_EXIT };
 	private static final String[] PURCHASE_MENU_OPTIONS = { PURCHASE_MENU_OPTION1, PURCHASE_MENU_OPTION2,PURCHASE_MENU_OPTION3 };
-private double amount;
+private double amount=0;
 	private List <Product> products;
 	private Menu menu;
-
+private List <CoinBank>coins;//Intialize
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 		this.products=new ArrayList<>();
 		this.loadItems();
+		//this.coins=coins;
 	}
 
 	public void run() {
@@ -40,12 +41,23 @@ private double amount;
 				}
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
+
 				while(true){
 			 choice= (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 			 if(choice.equals(PURCHASE_MENU_OPTION1)){
 				 System.out.println("Please enter the amounts in dollars");
 				amount+=inputConsole.nextDouble();
 			 }else if(choice.equals(PURCHASE_MENU_OPTION2)){
+				 // display list of products
+				 for (int i = 0; i < products.size(); i++) {
+					 Product product = products.get(i);
+
+					 if (product.getQuantity()==0) {
+						 System.out.println((i + 1) + ") " + product.getName() + " (SOLD OUT)");
+					 } else {
+						 System.out.println((i + 1) + ") " + product.getName() + " $" + product.getPrice());
+					 }
+				 }
 
 			 }
 
@@ -92,5 +104,9 @@ private double amount;
 		} catch(Exception exception) {
 			System.err.println("Something went wrong");
 		}
+	}
+	public void purchaseProcessFlow(){
+
+
 	}
 }

@@ -22,6 +22,8 @@ public Product(String code,String name,double price,String category,int quantity
 
 }
 
+
+
     public String getCode() {
         return code;
     }
@@ -54,6 +56,11 @@ public Product(String code,String name,double price,String category,int quantity
         this.category = cateogry;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
 
-
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
