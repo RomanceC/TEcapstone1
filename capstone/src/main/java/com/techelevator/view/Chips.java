@@ -4,10 +4,13 @@ import com.techelevator.inventory;
 
 public  class Chips extends inventory {
 
-    public Chips(String name) {
-        super(name, inventory.CHIPS);
+    public Chips (String name, String cost, int inventory) {
+        super (name, cost, inventory);
+
     }
 
-    public int getCurrentStock() { return 5;}
-
+    public String getSound () {
+        System.out.println("Crunch Crunch, Yum!");
+        return "Crunch Crunch, Yum!";
+    }
 }

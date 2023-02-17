@@ -2,7 +2,13 @@ package com.techelevator;
 
 import java.io.Serializable;
 
-public abstract class inventory implements Serializable, Comparable {
+public abstract class inventory;
+
+        public inventory(String name, String cost, int inventory) {
+
+        };
+
+
     public static final String GUM = "Gum";
     public static final String CANDY = "Candy";
     public static final String BEVERAGE = "Beverage";
@@ -15,7 +21,8 @@ public abstract class inventory implements Serializable, Comparable {
     private int initialStock = 5;
 
     //constructor
-    public inventory (String name, String price) {
+    public inventory(String name, String price) {
         this.name = name;
         this.price = price;
     }
+}

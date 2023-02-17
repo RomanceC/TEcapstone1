@@ -4,12 +4,12 @@ import com.techelevator.inventory;
 
 public class Gum extends inventory {
 
-    public Gum(String name) {
+    public Gum (String name, String cost, int inventory){
+        super(name,cost,inventory);
 
-        super(name, inventory.GUM);
-    }
-
-    public int getCurrentStock(){
-        return 5;
+        }
+    public String getSound () {
+        System.out.println("Glug Glug, Yum!");
+        return "Glug Glug, Yum!";
     }
 }

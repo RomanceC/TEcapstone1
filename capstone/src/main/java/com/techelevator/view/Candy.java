@@ -4,9 +4,13 @@ import com.techelevator.inventory;
 
 public class Candy extends inventory {
 
-    public Candy(String name) { super(name, Menu.CANDY); }
+    public Candy(String name, String cost, int inventory) {
+        super (name, cost, inventory);
 
-    public int getCurrentStock() { return 5; }
+    }
 
-
+    public String getSound () {
+        System.out.println("Munch Munch, Yum!");
+        return "Munch Munch, Yum!";
+    }
 }
