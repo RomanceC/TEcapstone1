@@ -40,7 +40,7 @@ date = new Date();
 fileName = "Log.txt";
 file = new File(fileName);
 try {
-fWriter = new FileWriter(file,true);
+fWriter = new FileWriter(file,true);//append function to extend i.e  to stop overwriting
 } catch (IOException e) {
 e.printStackTrace();
 }
@@ -65,11 +65,11 @@ count++;
 while(true){
  choice= (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
  if(choice.equals(PURCHASE_MENU_OPTION1)){
- System.out.println("Please enter the amount in whole amount like $1 $2 $5 \n ");
+ System.out.println("Please enter the amount in whole amount like $1 $2 $5 without decimal and $ sign \n ");
  double credit=(double)inputConsole.nextInt();
-amount+=credit;
+amount+=credit;// amount=amount+credit
 
-System.out.println(String.format("$%.2f",credit)+" added");
+System.out.println(String.format("$%.2f",credit)+" added");// ?
 System.out.println(String.format("Total balance : $%.2f", amount));
 try {
 fWriter.write(dateFormat.format(date)+String.format(" FEED MONEY $%.2f $%.2f",credit,amount )+"\n");
@@ -83,7 +83,7 @@ e.printStackTrace();
  System.out.println(product.getCode()+") "+product.getName());
  count++;
  }
- System.out.println("please enter the product code \n");
+ System.out.println("please enter the product code in Caps as it is provided \n");
 
  choice=inputConsole.next();
  boolean validItem=false;
@@ -92,8 +92,8 @@ if(product.getCode().equals(choice)) {
 validItem=true;
 if(product.getQuantity()>0){
 if(amount>=product.getPrice()){
-product.setQuantity(product.getQuantity()-1);
-//double old_amount=amount;
+product.setQuantity(product.getQuantity()-1);//5-1
+
 amount-= product.getPrice();
 try {
 fWriter.write(dateFormat.format(date)+String.format(" %s $%.2f $%.2f",product.getName(),product.getPrice(),amount )+"\n");
@@ -142,10 +142,11 @@ System.out.println("Please enter any of valid Product like A1 A2 ..\n");
  }else if ((choice.equals(PURCHASE_MENU_OPTION3))){
  //Finish Transaction
 
-String tempArray[]=String.format("%.2f", amount).split("\\.");
+String tempArray[]=String.format("%.2f", amount).split("\\.");//[0]=18,[1]=.99
+  int dollars = Integer.parseInt(tempArray[0]);
 int pennies = Integer.parseInt(tempArray[1]);
-int dollars = Integer.parseInt(tempArray[0]);
-int quarter=(int)pennies/25;
+
+int quarter=(int)pennies/25;//99/25=3 quaters which is 75, balance =99-75=24/10 as 2 dime and 4 as pennies
 pennies%=25;
 int dime=(int)pennies/10;
 pennies%=10;
@@ -188,8 +189,8 @@ break;
 }
 
 public static void main(String[] args) {
-Menu menu = new Menu(System.in, System.out);
-VendingMachineCLI cli = new VendingMachineCLI(menu);
+Menu menu = new Menu(System.in, System.out);//object Menu class
+VendingMachineCLI cli = new VendingMachineCLI(menu);//object vending class
 cli.run();
 }
 
@@ -207,7 +208,7 @@ try(Scanner fileScanner=new Scanner(file)){
 while (fileScanner.hasNextLine()){
 Product temp=null;
 String listItems=fileScanner.nextLine();
-String[] splitLine=listItems.split("\\|");
+String[] splitLine=listItems.split("\\|");//  /n
 String category = splitLine[3];
 String code=splitLine[0];
 String name=splitLine[1];

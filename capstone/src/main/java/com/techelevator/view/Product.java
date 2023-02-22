@@ -4,11 +4,11 @@ import com.techelevator.VendingMachineCLI;
 
 public class Product {
 
-  private   String code;
-private String name;
-private double  price;
-private String category;
-private int quantity;
+  private   String code;//0
+private String name;//index 1
+private double  price;//2
+private String category;//3
+private int quantity;//4
 
 public Product(){
 
